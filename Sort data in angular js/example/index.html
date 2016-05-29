@@ -1,0 +1,48 @@
+<!doctype html>
+    <html>
+      <head>
+    
+    </head>
+
+    <body ng-app="myApp" ng-controller="appCtrl">
+        <div>
+           <table>
+               <thead>
+                   <tr>
+                     Rows to display:<input type="number" ng-model="number" ngChange="getArr()">
+                   </tr>
+                    <tr>
+                      order by:<select ng-model="sortField">
+                                     <option value="name">name asc</option>
+                                      <option value="dateOfBirth">date of birth desc</option>
+                                      <option value="gender">gender asc</option>
+                                      <option value="salary">salary asc</option>
+                                 </select>
+                   
+                    </tr>
+                   
+                    <tr>
+                        <th>Name</th>
+                        <th>Date of Birth</th>
+                        <th>Gender</th>
+                        <th>salary</th>
+                    </tr>
+                </thead>
+               <tbody>
+                     <tr ng-repeat="empl in employee|orderBy:sortField">
+                         <td>{{empl.name|uppercase}}</td>
+                         <td>{{empl.dateOfBirth}}</td>
+                         <td>{{empl.gender}}</td>
+                         <td>{{empl.salary}}</td>
+                           
+                    </tr>
+               </tbody>
+            
+            </table>
+        </div>
+        
+        <script src="public/libs/angular/angular.js"></script>
+        <script src="public/libs/angular-route/angular-route.js"></script>
+      <script src="public/app.js"></script>
+     </body>
+       </html>
